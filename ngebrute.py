@@ -20,24 +20,26 @@ class main:
 		scan_results = iface.scan_results()
 		wifi_name_set = set()
 		for w in scan_results:
-			wifi_name_and_signal = (100 + w.signal, w.ssid.encode('raw_unicode_escape').decode('utf-8', "ignore"))
+			wifi_name_and_signal = (100 + w.signal, w.ssid.encode('raw_unicode_escape').decode('utf-8', "ignore"), w.bssid)
 			wifi_name_set.add(wifi_name_and_signal)
 		return wifi_name_set
 
+# print(main().scan_wifi())
 	def print_sorted_wifi(self, wifi_name_list):
 		no = 0
 		w_name = list(wifi_name_list)
 		list_name_w = sorted(wifi_name_list, key=lambda a: a[0], reverse=True)
 		
-		print("-" * 40)
-		print("\r{:<6}{:<13}{}".format("No", "Frequency", "SSID"))
-		print("-" * 40)
+		print("-" * 70)
+		print("\r{:<6}{:<15}{:<25}{}".format("No", "Signal", "BSSID", "SSID"))
+		print("-" * 70)
 
 		for res_list_wifi in list_name_w:
 			no += 1
-			print("\r{:<6d}{:<13d}{}".format(no, res_list_wifi[0], res_list_wifi[1] if res_list_wifi[1] else "*SSID Not Detect"))
+			print("\r{:<6}{:<15}{:<25}{}".format(no, res_list_wifi[0], res_list_wifi[2], res_list_wifi[1] if res_list_wifi[1] else "*SSID Not Detect"))
 
-		print("-" * 40)
+
+		print("-" * 70)
 		print("Please select with the command press 'Ctrl+C' to select the target (Number)")
 
 		return list_name_w

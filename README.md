@@ -59,21 +59,31 @@ sudo python3 script_name.py -w /path/to/wordlist.txt
 |_| \_|\__, |\___|_.__/|_|   \__,_|\__\___| \/  \/   |_____|_|    |_____|
         __/ |                                                        
        |___/                                                         
-----------------------------------------
-No    Frequency    SSID
-----------------------------------------
-1     80           Network_1
-2     75           Network_2
-3     60           Hidden_SSID
-----------------------------------------
+----------------------------------------------------------------------
+No    Signal         BSSID                    SSID
+----------------------------------------------------------------------
+1     53             22:22:22:22:22:22        WIFITESTING
+2     8              11:11:11:11:11:11        LOREM
+----------------------------------------------------------------------
 Please select with the command press 'Ctrl+C' to select the target (Number)
+^CEnter the numbers to be executed: 1
+----------------------------------------
+You choose SSID: WIFITESTING with the number 1
+----------------------------------------
+SSID 'WIFITESTING' found. Starting the login process...
+[-] WRONG PASSWORD =  10000000
+[-] WRONG PASSWORD =  10000001
+[+++] PASSWORD IS CORRECT =  awokwok
 ```
-
 
 ## Notes
 
 * Ensure the wordlist file is properly formatted with one password per line.
 * The tool requires appropriate permissions to manage WiFi connections.
+
+## Credits
+
+The wordlist used in this project comes from [Mysteriza](https://github.com/Mysteriza/WiFi-Password-Wordlist). Thanks to the creators for their contributions.
 
 ## Disclaimer
 
